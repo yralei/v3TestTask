@@ -1,0 +1,27 @@
+{
+  "files": ["auto-imports.d.ts", "components.d.ts"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ],
+  "include": [
+    "env.d.ts",
+    "**/*",
+    "./typed-router.d.ts"
+  ],
+  "compilerOptions": {
+    "moduleResolution": "Bundler",
+    "types": [
+      "unplugin-vue-router/client",
+      "vite-plugin-vue-layouts/client"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
