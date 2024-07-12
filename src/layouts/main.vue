@@ -1,8 +1,7 @@
 <template>
   <div>
     <Header />
-
-    <div style="padding-top: 70px">
+    <div class="pt-5 mt-3">
       <router-view />
     </div>
   </div>

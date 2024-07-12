@@ -1,8 +1,9 @@
 import axios from 'axios'
 import { Ref } from 'vue'
+import { useAuthStore } from '@/store/auth'
 
 const API_BASE_URL = 'http://64.226.101.216/api'
-const API_TOKEN = localStorage.getItem('token')
+const API_TOKEN = useAuthStore().token
 const config = {
   headers: {
     Authorization: `Bearer ${API_TOKEN}`,

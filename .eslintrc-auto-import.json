@@ -68,6 +68,8 @@
     "watchEffect": true,
     "watchPostEffect": true,
     "watchSyncEffect": true,
-    "definePage": true
+    "definePage": true,
+    "useApi": true,
+    "useAuth": true
   }
 }

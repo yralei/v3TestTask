@@ -11,7 +11,12 @@ declare module 'vue' {
     BaseButton: typeof import('./src/components/base/BaseButton.vue')['default']
     BaseInput: typeof import('./src/components/base/BaseInput.vue')['default']
     Button: typeof import('@/components/base/BaseButton.vue')['default']
+    ChangeStatusModal: typeof import('./src/components/ChangeStatusModal.vue')['default']
+    CreateTaskModal: typeof import('./src/components/CreateTaskModal.vue')['default']
+    Header: typeof import('./src/components/Header.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TransitionModal: typeof import('./src/components/TransitionModal.vue')['default']
+    UpdateModal: typeof import('./src/components/UpdateModal.vue')['default']
   }
 }

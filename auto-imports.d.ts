@@ -52,10 +52,12 @@ declare global {
   const toValue: typeof import('vue')['toValue']
   const triggerRef: typeof import('vue')['triggerRef']
   const unref: typeof import('vue')['unref']
+  const useApi: typeof import('./src/composables/useApi')['useApi']
   const useAttrs: typeof import('vue')['useAttrs']
+  const useAuth: typeof import('./src/composables/useAuth')['useAuth']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
-  const useLink: typeof import('vue-router')['useLink']
+  const useLink: (typeof import('vue-router'))['useLink']
   const useRoute: typeof import('vue-router/auto')['useRoute']
   const useRouter: typeof import('vue-router/auto')['useRouter']
   const useSlots: typeof import('vue')['useSlots']
@@ -122,7 +124,9 @@ declare module 'vue' {
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
+    readonly useApi: UnwrapRef<typeof import('./src/composables/useApi')['useApi']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useAuth: UnwrapRef<typeof import('./src/composables/useAuth')['useAuth']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useRoute: UnwrapRef<typeof import('vue-router/auto')['useRoute']>
@@ -184,7 +188,9 @@ declare module '@vue/runtime-core' {
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
+    readonly useApi: UnwrapRef<typeof import('./src/composables/useApi')['useApi']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useAuth: UnwrapRef<typeof import('./src/composables/useAuth')['useAuth']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useRoute: UnwrapRef<typeof import('vue-router/auto')['useRoute']>

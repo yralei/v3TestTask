@@ -19,7 +19,7 @@ export default defineConfig({
     }),
     AutoImport({
       imports: ['vue', VueRouterAutoImports],
-      dirs: ['./composables/**'],
+      dirs: ['./src/composables/**'],
       vueTemplate: true,
       dts: true,
       eslintrc: {

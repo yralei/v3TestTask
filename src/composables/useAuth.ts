@@ -1,10 +1,35 @@
 import axios from 'axios'
+import { useAuthStore } from '@/store/auth'
+import { useRouter } from 'vue-router'
 
 const API_BASE_URL = 'http://64.226.101.216/api'
-// const API_TOKEN = localStorage.getItem('token')
 
 export function useAuth() {
   const router = useRouter()
+  const store = useAuthStore()
+
+  const register = async (data) => {
+    try {
+      const response = await axios.post(
+        `${API_BASE_URL}/register`,
+        {
+          email: data.email,
+          name: data.name,
+          password: data.password,
+          password_confirmation: data.passwordConfirmation
+        },
+        {
+          headers: {
+            Accept: 'application/json'
+          }
+        }
+      )
+      console.log('Registration successful:', response.data)
+      router.push('/auth/login')
+    } catch (error) {
+      console.error('Error during registration:', error.response?.data || error.message)
+    }
+  }
 
   const login = async (data) => {
     try {
@@ -15,7 +40,7 @@ export function useAuth() {
       })
 
       if (response?.data.token) {
-        localStorage.setItem('token', response.data.token)
+        store.setToken(response.data.token)
         router.push('/')
       }
     } catch (error) {
@@ -24,24 +49,24 @@ export function useAuth() {
   }
 
   const logout = async () => {
+    store.setToken('')
+    router.push('/auth/login')
     try {
-      // await axios.post(
-      //   `${API_BASE_URL}/logout`,
-      //   {},
-      //   {
-      //     headers: {
-      //       Authorization: `Bearer ${API_TOKEN}`,
-      //       Accept: 'application/json'
-      //     }
-      //   }
-      // )
-
-      localStorage.removeItem('token')
-      router.push('/auth/login')
+      const response = await axios.post(
+        `${API_BASE_URL}/logout`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${store.token}`,
+            Accept: 'application/json'
+          }
+        }
+      )
+      console.log(response)
     } catch (error) {
       console.error('Error during login:', error.response?.data || error.message)
     }
   }
 
-  return { login, logout }
+  return { login, logout, register }
 }
